@@ -69,6 +69,22 @@ public class EconomyManager : MonoBehaviour
         saveData.totalEarnedMoney += amount;
     }
 
+    public bool TrySpendMoney(double amount)
+    {
+        if (saveData == null || amount <= 0d || double.IsNaN(amount) || double.IsInfinity(amount))
+        {
+            return false;
+        }
+
+        if (saveData.money < amount)
+        {
+            return false;
+        }
+
+        saveData.money -= amount;
+        return true;
+    }
+
     public void RecalculateIncome()
     {
         if (saveData == null)
