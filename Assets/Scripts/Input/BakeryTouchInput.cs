@@ -103,11 +103,10 @@ public class BakeryTouchInput : MonoBehaviour, IPointerDownHandler
 
         if (popupRect != null)
         {
-            Camera uiCamera = eventData.pressEventCamera;
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                     popupParent,
                     eventData.position,
-                    uiCamera,
+                    null,
                     out Vector2 localPosition))
             {
                 popupRect.anchoredPosition = localPosition;

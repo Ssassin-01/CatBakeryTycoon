@@ -10,6 +10,12 @@ public class EconomyManager : MonoBehaviour
     public double CurrentTapIncome { get; private set; }
     public double CurrentAutoIncomePerSecond { get; private set; }
 
+    public double GetTapIncome()
+    {
+        RecalculateIncome();
+        return CurrentTapIncome;
+    }
+
     public void Initialize(GameSaveData data, CustomerManager customers)
     {
         saveData = data;
